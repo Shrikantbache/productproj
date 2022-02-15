@@ -89,7 +89,7 @@ DATABASES = {
         'NAME': 'product_data',
         'ENGINE': 'django.db.backends.mysql',
         'USER': 'root',
-        'PASSWORD': 'Shri2001'
+        'PASSWORD': ' '
     }
 }
 
