@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from products.views import productinfo,update ,delete_data
-from user.views import home, register,post,user_login
+from user.views import home, register,post,user_login, user_logout
 
 urlpatterns = [
     path('',home),
@@ -26,5 +26,6 @@ urlpatterns = [
     path('post/',post),
     path('<int:id>/',update ,name ="updatedata"),
     path('delete/<int:id>/',delete_data ,name ="deletedata"),
-    path('user_login/',user_login,name= 'user_login')
+    path('user_login/',user_login,name= 'user_login'),
+    path('user_logout/',user_logout,name= 'user_logout'),
 ]

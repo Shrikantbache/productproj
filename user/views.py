@@ -20,7 +20,7 @@ def register(requset):
     return render(requset, 'signup.html',{'form':fm}) 
 
 def post(request):
-    if request.user.is_authenticated:
+    if  request.user.is_authenticated:
         if request.method == 'POST':
                 fm = Post(request.POST)
                 if fm.is_valid():
@@ -32,7 +32,7 @@ def post(request):
         return HttpResponseRedirect('/user_login/')
 
 def user_login(request):
-    if request.user.is_authenticated:
+    if not request.user.is_authenticated:
         if request.method == "POST":
             form = AuthenticationForm(request=request,data=request.POST)
             if form.is_valid():
@@ -48,3 +48,7 @@ def user_login(request):
         return render(request,'login.html',{'form':form})
     else:
         return HttpResponseRedirect('/post/')
+
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/')
